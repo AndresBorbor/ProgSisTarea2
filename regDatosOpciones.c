@@ -27,7 +27,10 @@ int main(int argc, char *argv[])
                 crearEstudiante(&estudiantes[i]);
             }
             mostrarProfesores(profesores, 1);
-            mostrarEstudiantes(estudiantes, cantidadPersonas-1);
+            mostrarEstudiantes(estudiantes, (cantidadPersonas-1));
+            eliminarMateriaProfesores(profesores, 1);
+            eliminarMateriaEstudiante(estudiantes, (cantidadPersonas-1));
+            cambiarNivel(estudiantes, (cantidadPersonas-1));
             free(estudiantes);
             free(profesores);
             break;
@@ -37,6 +40,7 @@ int main(int argc, char *argv[])
                 crearProfesor(&profesores[i]);
             }
             mostrarProfesores(profesores, cantidadPersonas);
+            eliminarMateriaProfesores(profesores, cantidadPersonas);
             free(profesores);
             break;
         case 'e':
@@ -45,12 +49,15 @@ int main(int argc, char *argv[])
                 crearEstudiante(&estudiantes[i]);
             }
             mostrarEstudiantes(estudiantes, cantidadPersonas);
+            eliminarMateriaEstudiante(estudiantes, cantidadPersonas);
+            cambiarNivel(estudiantes, cantidadPersonas);
             free(estudiantes);
             break;
         case ':':
             printf("Opcion %s recibida, pero sin argumentos", optopt);
             break;
         case '?':
+            printf("Opción no reconocida: %c\n", optopt);
             break;
         }
     }

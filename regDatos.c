@@ -35,6 +35,9 @@ int main()
         }
         mostrarProfesores(profesores, 1);
         mostrarEstudiantes(estudiantes, cantidadPersonas-1);
+        eliminarMateriaProfesores(profesores, 1);
+        eliminarMateriaEstudiante(estudiantes, cantidadPersonas-1);
+        cambiarNivel(estudiantes, cantidadPersonas-1);
         free(estudiantes);
         free(profesores);
         break;
@@ -44,6 +47,7 @@ int main()
             crearProfesor(&profesores[i]);
         }
         mostrarProfesores(profesores, cantidadPersonas);
+        eliminarMateriaProfesores(profesores, cantidadPersonas);
         free(profesores);
         break;
     case 'e':
@@ -52,6 +56,8 @@ int main()
             crearEstudiante(&estudiantes[i]);
         }
         mostrarEstudiantes(estudiantes, cantidadPersonas);
+        eliminarMateriaEstudiante(estudiantes, cantidadPersonas);
+        cambiarNivel(estudiantes, cantidadPersonas);
         free(estudiantes);
         break;
     default:
